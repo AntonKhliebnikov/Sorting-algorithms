@@ -1,0 +1,78 @@
+<mxfile host="drawio-plugin" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" modified="2025-11-14T14:07:27.293Z" etag="Bo3YKpgn5fCddtE9yTyD" version="22.1.22" type="embed">
+  <diagram id="countingSortFlow" name="CountSort">
+    <mxGraphModel dx="12826" dy="7982" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="7" value="Start" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="80" y="30" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Исходный массив int[] array" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="40" y="120" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="int max = findMaxValue(array)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#60a5fa;" parent="1" vertex="1">
+          <mxGeometry x="40" y="210" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="int[] countDigit = new int[max + 1]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="40" y="300" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="Для каждого value из array:&lt;br&gt;countDigit[value]++" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5e1;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="40" y="390" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="int index = 0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="280" y="120" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="Для i от 0 до countDigit.length" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="280" y="210" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="Для j от 0 до countDigit[i]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="280" y="300" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="array[index] = i;&#xa;index++" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5e1;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="280" y="390" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="Finish" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="280" y="480" width="160" height="53.33" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value=" findMaxValue(int[] array)" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;rounded=1;fillColor=#e3f2fd;strokeColor=#60a5fa;" parent="1" vertex="1">
+          <mxGeometry x="520" y="280" width="220" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="int max = 0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="17" vertex="1">
+          <mxGeometry y="30" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="Для каждого value из array" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="17" vertex="1">
+          <mxGeometry y="80" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="Если value больше max:&lt;br&gt;max = value" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5e1;strokeColor=#82b366;" parent="17" vertex="1">
+          <mxGeometry y="130" width="220" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="return max" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="17" vertex="1">
+          <mxGeometry y="190" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="22" style="endArrow=block;endFill=1;" parent="1" source="7" target="8" edge="1" />
+        <mxCell id="23" style="endArrow=block;endFill=1;" parent="1" source="8" target="9" edge="1" />
+        <mxCell id="24" style="endArrow=block;endFill=1;" parent="1" source="9" target="10" edge="1" />
+        <mxCell id="25" style="endArrow=block;endFill=1;" parent="1" source="10" target="11" edge="1" />
+        <mxCell id="26" style="endArrow=block;endFill=1;" parent="1" source="11" target="12" edge="1" />
+        <mxCell id="27" style="endArrow=block;endFill=1;" parent="1" source="12" target="13" edge="1" />
+        <mxCell id="28" style="endArrow=block;endFill=1;" parent="1" source="13" target="14" edge="1" />
+        <mxCell id="29" style="endArrow=block;endFill=1;" parent="1" source="14" target="15" edge="1" />
+        <mxCell id="30" value="Шаг 1. Находим максимальное значение.&lt;br&gt;Смотрим на элементы и находим max. &lt;br&gt;Это нужно, чтобы понять,&lt;br&gt;какого размера делать массив для подсчёта." style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="-295" y="180" width="280" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="Шаг 2. Создаем массив для подсчёта countDigit,&lt;br&gt;длиной max + 1.&lt;br&gt;Индексы этого массива — это сами значения, &lt;br&gt;которые встречаются в исходном массиве. &lt;br&gt;Каждый элемент countDigit[i] будет хранить,&lt;br&gt;сколько раз число i встретилось." style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="-295" y="280" width="290" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="Шаг 3. Заполняем массив подсчёта.&lt;br&gt;Проходим по исходному массиву array&lt;br&gt;и для каждого значения value&lt;br&gt;увеличиваем countDigit[value]" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="-295" y="400" width="240" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="Шаг 4. Восстанавливаем отсортированный массив.&lt;br&gt;Теперь из массива countDigit&lt;br&gt;строим отсортированный массив:&lt;br&gt;Идём по индексу i от 0 до max + 1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="470" y="180" width="310" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-size: 14px; background-color: initial;&quot;&gt;Cложность: O(n + k),&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;где:&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;n - кол-во элементов в массиве;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;k - кол-во возможных значений (диапозон)&lt;/span&gt;&lt;/div&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-295" y="10" width="300" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

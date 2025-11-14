@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.0.2">
+  <diagram id="bucketSortFlow" name="BucketSort">
+    <mxGraphModel dx="83111" dy="30334" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-28" value="Start" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="-354" y="225" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-29" value="Исходный массив int[] array" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="-414" y="325" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-30" value="int min = array[0];&lt;br&gt;int max = array[0];" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="-414" y="415" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-31" value="Для каждого value из array:&#xa;если value меньше min → min = value&#xa;если value больше max → max = value" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5e1;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="-414" y="495" width="240" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-32" value="int n = array.length;&lt;br&gt;int bucketCount = n / 3;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="-414" y="595" width="240" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-33" value="Создаем List&amp;lt;List&amp;lt;Integer&amp;gt; buckets:" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="-414" y="685" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-34" value="range = max - min + 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="-80" y="325" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-35" value="Распределяем по блокам:&lt;br&gt;для каждого value из array:&lt;br&gt;  bucketIndex = (value - min) * bucketCount / range;&lt;br&gt;  если bucketIndex == bucketCount, то bucketIndex = bucketCount - 1;&lt;br&gt;  добавляем value в buckets[bucketIndex]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5e1;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="-80" y="400" width="380" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-36" value="Для каждого bucket из buckets:&lt;br&gt;вызываем Collections.sort(bucket)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="-80" y="560" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-37" value="Сборка результата:&#xa;index = 0;&#xa;для каждого bucket из buckets:&#xa;  для каждого value в bucket:&#xa;    array[index] = value;&#xa;    index++" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5e1;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="-80" y="655" width="380" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-38" value="Finish" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="-20" y="800" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-39" style="endArrow=block;endFill=1;" edge="1" parent="1" source="XKg_pHJs-Gt9ILL_SLqK-28" target="XKg_pHJs-Gt9ILL_SLqK-29" />
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-40" style="endArrow=block;endFill=1;" edge="1" parent="1" source="XKg_pHJs-Gt9ILL_SLqK-29" target="XKg_pHJs-Gt9ILL_SLqK-30" />
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-41" style="endArrow=block;endFill=1;" edge="1" parent="1" source="XKg_pHJs-Gt9ILL_SLqK-30" target="XKg_pHJs-Gt9ILL_SLqK-31" />
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-42" style="endArrow=block;endFill=1;" edge="1" parent="1" source="XKg_pHJs-Gt9ILL_SLqK-31" target="XKg_pHJs-Gt9ILL_SLqK-32" />
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-43" style="endArrow=block;endFill=1;" edge="1" parent="1" source="XKg_pHJs-Gt9ILL_SLqK-32" target="XKg_pHJs-Gt9ILL_SLqK-33" />
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-44" style="endArrow=block;endFill=1;" edge="1" parent="1" source="XKg_pHJs-Gt9ILL_SLqK-33" target="XKg_pHJs-Gt9ILL_SLqK-34" />
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-45" style="endArrow=block;endFill=1;" edge="1" parent="1" source="XKg_pHJs-Gt9ILL_SLqK-35" target="XKg_pHJs-Gt9ILL_SLqK-36" />
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-46" style="endArrow=block;endFill=1;" edge="1" parent="1" source="XKg_pHJs-Gt9ILL_SLqK-36" target="XKg_pHJs-Gt9ILL_SLqK-37" />
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-47" style="endArrow=block;endFill=1;" edge="1" parent="1" source="XKg_pHJs-Gt9ILL_SLqK-37" target="XKg_pHJs-Gt9ILL_SLqK-38" />
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-48" value="Шаг 1. Поиск минимума и максимума. Нужны, чтобы понять диапазон значений в массиве: от какого числа до какого." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-654" y="415" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-49" value="Шаг 2.&amp;nbsp;Определение количества блоков и создание структуры блоков" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-654" y="595" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-50" value="Шаг 3. Вычисление диапазона и распределение элементов по блокам." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="325" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-51" value="Шаг 4. Сортируем&amp;nbsp; внутри каждого блока и собираем в исходный массив." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="560" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XKg_pHJs-Gt9ILL_SLqK-52" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Сложность:&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Лучший / средний случай: O(n + k) ~ O(n), если k пропорционально n;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Худший случай: O(n^2). Где:&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;n - кол-во элементов в массиве,&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;k - кол-во блоков/корзин.&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-654" y="130" width="250" height="110" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
