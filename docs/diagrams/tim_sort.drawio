@@ -1,0 +1,49 @@
+<mxfile host="drawio-plugin" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" modified="2025-11-21T21:42:18.196Z" version="22.1.22" etag="HHQlcLi5Sq1AYR9FvpYQ" type="embed">
+  <diagram id="timSortFlow" name="TimSort">
+    <mxGraphModel dx="688" dy="480" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="complexityInfo" value="Сложность TimSort:&#xa;Лучший случай: O(n) (почти отсортированные данные)&#xa;Средний и худший случаи: O(n log n)&#xa;Доп. память: O(n) для слияний&#xa;Стабильный алгоритм сортировки" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#60a5fa;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="40" y="40" width="330" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="start" value="Start" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="520" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="input" value="Вход: массив int[] array&lt;br&gt;Вычисляем n = длина массива&lt;br&gt;Если n меньше либо равно 1, return" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="400" y="170" width="360" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="runs" value="Этап 1. Разбиение массива на небольшие отсортированные участки (run&#39;ы):&#xa;• Двигаемся слева направо по массиву.&#xa;• Находим подряд идущие элементы, которые уже не убывают (получаем естественный run).&#xa;• Если run получился слишком коротким, немного расширяем его вправо (но не за пределы массива).&#xa;• Внутри этого диапазона запускаем сортировку вставками, чтобы участок стал полностью отсортированным.&#xa;• Границы каждого такого отсортированного участка (run&#39;а) сохраняем в список runs.&#xa;В результате весь массив представлен как последовательность маленьких отсортированных кусочков." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5e1;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="260" y="270" width="640" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="merge" value="Этап 2. Постепенное слияние отсортированных участков:&#xa;• Есть список runs, каждый run — отсортированный диапазон массива.&#xa;• Пока run&#39;ов больше одного, берём их парами слева направо.&#xa;• Для каждой пары соседних run&#39;ов вызываем mergeSortedRanges и объединяем их в один более крупный отсортированный участок.&#xa;• Из всех новых объединённых участков формируем новый список runs.&#xa;• Повторяем процесс, пока не останется один run, охватывающий весь массив.&#xa;В конце массив полностью отсортирован, так как это единый большой отсортированный участок." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="260" y="490" width="640" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="end" value="Finish" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="450" y="730" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="runClass" value="Внутренний класс Run:&lt;br&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;class Run {&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;int startIndex;  // индекс начала run&#39;а&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;int endIndex;    // индекс конца run&#39;а&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;Run(int startIndex, int endIndex) {&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;this.startIndex = startIndex;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;this.endIndex = endIndex;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;}&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;}&lt;/span&gt;&lt;/div&gt;&lt;br&gt;Список runs хранит отсортированные диапазоны массива." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="930" y="170" width="380" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="insertionDesc" value="Метод insertionSortOnRange(array, leftIndex, rightIndex):&lt;br&gt;Сортировка вставками внутри диапазона [leftIndex, rightIndex]:&lt;br&gt;для i от leftIndex + 1 до rightIndex:&lt;br&gt;  currentValue = array[i]&lt;br&gt;  j = i - 1&lt;br&gt;  пока j не меньше leftIndex и array[j] больше currentValue:&lt;br&gt;    сдвигаем array[j] на позицию j + 1&lt;br&gt;    уменьшаем j на 1&lt;br&gt;  вставляем currentValue на позицию j + 1&lt;br&gt;В результате поддиапазон становится отсортированным по возрастанию." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5e1;strokeColor=#82b366;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="930" y="390" width="380" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="mergeDesc" value="Метод mergeSortedRanges(array, leftStartIndex, middleIndex, rightEndIndex):&lt;br&gt;Слияние двух соседних отсортированных диапазонов:&lt;br&gt;левый:  [leftStartIndex .. middleIndex]&lt;br&gt;правый: [middleIndex + 1 .. rightEndIndex]&lt;br&gt;Шаги:&lt;br&gt;  1) копируем левый и правый диапазоны во временные массивы leftArray и rightArray&lt;br&gt;  2) заводим указатели: leftPointer, rightPointer, targetIndex&lt;br&gt;  3) пока оба массива не закончились:&lt;br&gt;       сравниваем leftArray[leftPointer] и rightArray[rightPointer]&lt;br&gt;       меньший записываем в array[targetIndex] и сдвигаем соответствующий указатель&lt;br&gt;  4) дописываем оставшиеся элементы из leftArray или rightArray (если остались)&lt;br&gt;В итоге диапазон [leftStartIndex .. rightEndIndex] отсортирован." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="930" y="630" width="380" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="endArrow=block;endFill=1;" parent="1" source="start" target="input" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="endArrow=block;endFill=1;" parent="1" source="input" target="runs" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="endArrow=block;endFill=1;" parent="1" source="runs" target="merge" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="endArrow=block;endFill=1;" parent="1" source="merge" target="end" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

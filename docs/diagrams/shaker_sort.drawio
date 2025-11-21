@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.1.0">
+  <diagram id="shakerSortFlow" name="ShakerSort">
+    <mxGraphModel dx="1281" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="complexityInfo" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#60a5fa;fontSize=11;" value="Шейкерная сортировка (Shaker Sort)&lt;br&gt;Сложность:&lt;br&gt;• Худший случай: O(n²)&lt;br&gt;• Средний случай: O(n²)&lt;br&gt;• Лучший случай (почти отсортирован): близко к O(n) за счёт раннего выхода&lt;br&gt;Доп. память: O(1), сортировка на месте" vertex="1">
+          <mxGeometry height="130" width="360" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Start" vertex="1">
+          <mxGeometry height="60" width="120" x="520" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="Вход: массив int[] array" vertex="1">
+          <mxGeometry height="80" width="360" x="400" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="mainLoop" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5e1;strokeColor=#82b366;fontSize=11;" value="Основная идея алгоритма:&lt;br&gt;• Используются границы неотсортированной части: left и right.&lt;br&gt;• Логический флаг swapped показывает, были ли обмены на текущем проходе.&lt;br&gt;• Пока swapped == true и left меньше right:&lt;br&gt;  1) Сначала выполняем проход слева направо.&lt;br&gt;     ▸ Сравнивниваем соседей внутри диапазона от left до right.&lt;br&gt;     ▸ Если элемент слева больше элемента справа, меняем их местами.&lt;br&gt;     ▸ Если был хотя бы один обмен, swapped = true.&lt;br&gt;  2) Если за проход слева направо обменов не было, массив уже отсортирован — выходим.&lt;br&gt;  3) Уменьшаем правую границу: right уменьшить на 1 (правый элемент зафиксирован).&lt;br&gt;  4) Выполняем проход справа налево.&lt;br&gt;     ▸ Сравниваем соседей от right до left, двигаясь к началу массива.&lt;br&gt;     ▸ Если элемент слева больше элемента справа, меняем их местами.&lt;br&gt;     ▸ Если был обмен, swapped = true.&lt;br&gt;  5) Увеличиваем левую границу: left увеличить на 1 (левый элемент зафиксирован).&lt;br&gt;• Процесс повторяется, пока есть обмены и неотсортированная часть не сузилась до нуля." vertex="1">
+          <mxGeometry height="260" width="640" x="260" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="forwardPass" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Проход слева направо (внутри цикла):&#xa;• Устанавливаем swapped в ложь перед началом прохода.&#xa;• Идём по индексам i от left до right минус 1.&#xa;• На каждом шаге сравниваем array[i] и array[i + 1].&#xa;  ▸ Если левый элемент больше правого, меняем их местами.&#xa;  ▸ Устанавливаем swapped в истину, так как произошёл обмен.&#xa;• После завершения прохода самый большой элемент из диапазона [left; right] оказывается на позиции right." vertex="1">
+          <mxGeometry height="150" width="640" x="260" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="backwardPass" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Проход справа налево (внутри цикла):&#xa;• После уменьшения right снова устанавливаем swapped в ложь.&#xa;• Идём по индексам i от right до left плюс 1, то есть справа налево.&#xa;• На каждом шаге сравниваем array[i - 1] и array[i].&#xa;  ▸ Если элемент слева больше элемента справа, меняем их местами.&#xa;  ▸ Устанавливаем swapped в истину, так как произошёл обмен.&#xa;• После завершения прохода самый маленький элемент из диапазона [left; right] оказывается на позиции left, затем left увеличивается на 1." vertex="1">
+          <mxGeometry height="150" width="640" x="260" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Finish" vertex="1">
+          <mxGeometry height="80" width="260" x="450" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="start" style="endArrow=block;endFill=1;" target="input">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="input" style="endArrow=block;endFill=1;" target="mainLoop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="mainLoop" style="endArrow=block;endFill=1;" target="forwardPass">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="forwardPass" style="endArrow=block;endFill=1;" target="backwardPass">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="backwardPass" style="endArrow=block;endFill=1;" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

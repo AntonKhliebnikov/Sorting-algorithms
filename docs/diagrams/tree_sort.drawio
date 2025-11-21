@@ -1,0 +1,46 @@
+<mxfile host="drawio-plugin" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" modified="2025-11-21T21:07:03.882Z" version="22.1.22" etag="eup5QxptY25Ot8Zxi16u" type="embed">
+  <diagram id="treeSortFlow" name="TreeSort">
+    <mxGraphModel dx="1140" dy="480" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="start" value="Start" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="460" y="40" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="input" value="Вход: int[] array" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="390" y="130" width="260" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="buildTree" value="Этап 1. Построение дерева поиска:&lt;br&gt;для каждого значения из array вызываем insert" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5e1;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="360" y="220" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="inorder" value="Этап 2. Обход дерева in-order:&lt;br&gt;рекурсивно: левое поддерево → узел → правое поддерево&lt;br&gt;при посещении узла записываем значение в array[index] и увеличиваем index" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="320" y="320" width="400" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="end" value="Finish" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="390" y="460" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="insertInfo" value="insertRec:&lt;br&gt;• если текущий узел равен null → создаем узел с value&lt;br&gt;• если value меньше значения узла → рекурсивно в левое поддерево&lt;br&gt;• иначе (value больше или равно) → рекурсивно в правое поддерево" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#60a5fa;" parent="1" vertex="1">
+          <mxGeometry x="780" y="200" width="360" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="inorderInfo" value="inorderTraversalDFS:&lt;br&gt;если узел не null:&lt;br&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;1. обходим левое поддерево&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;2. записываем значение узла в array[index], index++&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;3. обходим правое поддерево&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#60a5fa;" parent="1" vertex="1">
+          <mxGeometry x="780" y="370" width="360" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="endArrow=block;endFill=1;" parent="1" source="start" target="input" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="endArrow=block;endFill=1;" parent="1" source="input" target="buildTree" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="endArrow=block;endFill=1;" parent="1" source="buildTree" target="inorder" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="endArrow=block;endFill=1;" parent="1" source="inorder" target="end" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2" value="Сложность TreeSort:&lt;br&gt;Средний&amp;nbsp; случай: O(n log n)&lt;br&gt;Худший случай (дерево “складывается в палку”):&amp;nbsp;O(n²)&lt;br&gt;Доп. память: O(n)&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#60a5fa;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="330" height="110" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

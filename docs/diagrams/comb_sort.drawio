@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.1.0">
+  <diagram id="combSortFlow" name="CombSort">
+    <mxGraphModel dx="1281" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="complexityInfo" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#60a5fa;fontSize=11;" value="Сортировка расчёской (Comb Sort)&#xa;&#xa;Сложность:&#xa;• Худший случай: O(n²)&#xa;• Средний случай: примерно O(n²)&#xa;• Лучший случай (почти отсортированные данные): ближе к O(n)&#xa;Дополнительная память: O(1), сортировка выполняется на месте" vertex="1">
+          <mxGeometry height="130" width="380" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="start" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Start" vertex="1">
+          <mxGeometry height="60" width="120" x="520" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="inputInit" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" value="Вход: массив int[] array&lt;br&gt;Вычисляем n = длина массива&lt;br&gt;&lt;br&gt;Инициализация:&lt;br&gt;gap = n  (начальный шаг между сравниваемыми элементами)&lt;br&gt;shrinkFactor = 1.3 (коэффициент уменьшения шага)&lt;br&gt;swapped = false (флаг, были ли обмены при текущем значении gap)" vertex="1">
+          <mxGeometry height="170" width="440" x="360" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="mainLoop" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5e1;strokeColor=#82b366;fontSize=11;" value="Основной цикл сортировки расчёской:&lt;br&gt;• Пока выполняется хотя бы одно из условий:&lt;br&gt;  – gap больше 1&lt;br&gt;  – или swapped истинно (были обмены на последнем проходе),&lt;br&gt;  повторять следующие шаги:&lt;br&gt;&lt;br&gt;  1) Если gap больше 1, уменьшаем его:&lt;br&gt;     gap = (int) (gap / shrinkFactor).&lt;br&gt;&lt;br&gt;  2) Устанавливаем swapped = false перед новым проходом по массиву.&lt;br&gt;&lt;br&gt;  3) Выполняем проход по массиву с текущим шагом gap:&lt;br&gt;     – последовательно сравниваем пары элементов на расстоянии gap&lt;br&gt;       (позиции i и i + gap).&lt;br&gt;     – если левый элемент больше правого, меняем их местами.&lt;br&gt;     – если был хотя бы один обмен, устанавливаем swapped = true.&lt;br&gt;&lt;br&gt;• Когда gap становится равен 1 и на проходе при gap = 1 обменов больше нет&lt;br&gt;  (swapped false), массив отсортирован." vertex="1">
+          <mxGeometry height="280" width="640" x="260" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="gapLogic" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="Логика уменьшения шага gap:&lt;br&gt;• В начале gap равен длине массива (n).&lt;br&gt;• На каждой итерации, если gap больше 1:&lt;br&gt;  – вычисляем новое значение gap = (int)(gap / shrinkFactor).&lt;br&gt;• Коэффициент shrinkFactor около 1.3 подобран так, чтобы шаг&lt;br&gt;  уменьшался достаточно быстро, но не слишком резко.&lt;br&gt;• В итоге gap постепенно доходит до 1, и алгоритм превращается&lt;br&gt;  в улучшенный пузырьковый проход по массиву." vertex="1">
+          <mxGeometry height="200" width="380" x="930" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="passLogic" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" value="Проход по массиву с текущим шагом gap:&lt;br&gt;• Для индекса i от 0 до n - gap - 1:&lt;br&gt;  – сравниваем элементы array[i] и array[i + gap].&lt;br&gt;  – если array[i] больше array[i + gap], элементы меняем местами.&lt;br&gt;  – при первом же обмене swapped становится true.&lt;br&gt;• Такие «расчёски» с убывающим шагом быстрее разрушают&lt;br&gt;  большие «застревания» элементов, чем простой пузырёк." vertex="1">
+          <mxGeometry height="200" width="380" x="930" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="end" parent="1" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Finish" vertex="1">
+          <mxGeometry height="80" width="260" x="450" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="start" style="endArrow=block;endFill=1;" target="inputInit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="inputInit" style="endArrow=block;endFill=1;" target="mainLoop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="mainLoop" style="endArrow=block;endFill=1;" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
